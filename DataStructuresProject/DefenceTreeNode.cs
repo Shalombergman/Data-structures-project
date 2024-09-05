@@ -9,12 +9,7 @@ public class DefenceTreeNode
     public  DefenceTreeNode Left {get; set;}
     public  DefenceTreeNode Right {get; set;}
    
-    //public Dictionary<string, int,string,int,string,List<string>> Children { get; set; } = new Dictionary<string, DefenceTreeNode>();
-    // public DefenceTreeNode(Dictionary<DefenceTreeNode, DefenceTreeNode> dict)
-    // {
-    //     
-    // }
-
+    
     public DefenceTreeNode(int minSeverity, int maxSeverity ,List<string> defenses)
     {
         MinSeverity = minSeverity;
@@ -24,4 +19,6 @@ public class DefenceTreeNode
         Right = null;
         
     }
+
+   
 }

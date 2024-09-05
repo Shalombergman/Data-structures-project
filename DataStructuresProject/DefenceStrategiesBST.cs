@@ -34,22 +34,31 @@ public class DefenceStrategiesBST
         return node;
     }
     //סריקה תכילית הדפסה קודם של השורש ובכך אני יכול לשחזר את העץ ואז סריקה של תת עץ שמאלי ואז תת עץ ימני
-    public static void PreOrder(DefenceTreeNode _root)
+    public static void PreOrder(DefenceTreeNode _root = null)
     {
         
         if (_root == null)
         {
+            _root = root;
+        }
+
+        if (_root == null)
+        {
             return;
         }
-        else
-        {
-            root = _root;
-        }
+       
+        Console.WriteLine($"[{_root.MinSeverity} - {_root.MaxSeverity}] Defenses:{_root.Defenses[0].ToString()},{_root.Defenses[1].ToString()} ");
         
+        if (_root.Left != null)
+        {
+            PreOrder(_root.Left);
+        }
 
-        Console.WriteLine($"[{root.MinSeverity} - {root.MaxSeverity}] Defenses:{root.Defenses[0].ToString()},{root.Defenses[1].ToString()} ");
-        PreOrder(root.Left) ;
-        PreOrder(root.Right);
+        if (_root.Right != null)
+        {
+            PreOrder(_root.Right);
+        }
+            
     }
 
 }
