@@ -8,7 +8,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        List<DefenceTreeNode> defenceTreeNodes = ReadFromJson<List<DefenceTreeNode>>("/Users/shalom_bergman/kodcode2/Data_engineering_course/DataStructuresProject/DataStructuresProject/Json/defenceStrategies.json");  
+        List<DefenceTreeNode> defenceTreeNodes = ReadFromJson<List<DefenceTreeNode>>("/Users/shalom_bergman/kodcode2/Data_engineering_course/DataStructuresProject/DataStructuresProject/Json/defenceStrategiesBalanced.json");  
 
         static T ReadFromJson<T>(string filePath)
         {
@@ -18,8 +18,16 @@ public class Program
 
         foreach (DefenceTreeNode defenceTreeNode in defenceTreeNodes)
         {
-            Console.WriteLine(defenceTreeNode.MaxSeverity);
+            DefenceStrategiesBST.Insert(defenceTreeNode);
+            
+            
+            //Console.WriteLine(defenceTreeNode.MaxSeverity);
         }
+
+        DefenceStrategiesBST.PreOrder(defenceTreeNodes[0]);
+
+        // Console.WriteLine(DefenceStrategiesBST.InsertRecursive(DefenceTreeNode  defenceTreeNodes[0], defenceTreeNodes[0].MinSeverity,
+        //     defenceTreeNodes[0].MaxSeverity, defenceTreeNodes[0].Defenses).ToString());
         //Console.WriteLine($"\n{defenceTreeNodes.ToString()}");
         // string jsonString = JsonSerializer.Serialize(destination, new JsonSerializerOptions() { WriteIndented = true});  
         // using (StreamWriter outputFile = new StreamWriter("dataReady.json"))  
